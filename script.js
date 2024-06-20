@@ -1,29 +1,14 @@
-let result = document.getElementById("result");
-let expression = "";
+const form = document.getElementById("user-form");
 
-function display(value) {
-  expression += value;
-  result.value = expression;
-}
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); //To Prevent default form submission
 
-function clearScreen() {
-  expression = "";
-  result.value = expression;
-}
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
-function deleteDigit() {
-  expression = expression.slice(0, -1);
-  result.value = expression;
-}
-
-function calculate() {
-  try {
-    let answer = eval(expression);
-    expression = answer;
-    result.value = expression;
-  } catch (error) {
-    alert("Invalid Expression");
-    expression = "";
-    result.value = expression;
-  }
-}
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Message:", message);
+  form.reset();
+});
